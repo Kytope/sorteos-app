@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorteos</title>
+  </head>
+  <body>
+    <div id="dvd-background">
+      <img src="/src/img/dosecatsinfondo.webp" alt="" id="dvd-logo">
+    </div>
+    <div id="app">
+      <div class="container">
+        <h1>Sorteos</h1>
+
+        <div class="upload-section">
+          <textarea id="participantInput" placeholder="Pega aquí la lista de participantes (un nombre por línea o formato: 1→Usuario)"></textarea>
+          <button id="loadBtn" class="load-btn">Cargar Participantes</button>
+          <div id="participantCount"></div>
+        </div>
+
+        <div class="controls">
+          <button id="spinBtn" disabled>Girar Sorteo</button>
+        </div>
+
+        <div class="raffle-display">
+          <div id="currentSelection" class="selection-card"></div>
+          <canvas id="particleCanvas"></canvas>
+        </div>
+
+        <div class="post-spin-controls" id="postSpinControls" style="display: none;">
+          <button id="eliminateBtn" class="eliminate-option">Tirar al Agua</button>
+          <button id="selectWinnerBtn" class="winner-option">Seleccionar como Ganador</button>
+        </div>
+
+        <div class="results">
+          <div class="section">
+            <h2>Participantes Activos (<span id="activeCount">0</span>)</h2>
+            <div id="activeList" class="participant-list"></div>
+          </div>
+
+          <div class="section">
+            <h2>Eliminados (<span id="eliminatedCount">0</span>)</h2>
+            <div id="eliminatedList" class="participant-list"></div>
+          </div>
+
+          <div class="section winner-section" id="winnerSection" style="display: none;">
+            <h2>🏆 Ganador</h2>
+            <div id="winnerDisplay" class="winner-card"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
