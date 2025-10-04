@@ -11,7 +11,6 @@ class SorteosApp {
   private raffleService: RaffleService | null = null;
   private particleSystem: ParticleSystem;
   private rouletteAnimation: RouletteAnimation;
-  private dvdAnimation: DVDAnimation;
   private isAnimating = false;
   private currentSelected: Participant | null = null;
 
@@ -52,7 +51,9 @@ class SorteosApp {
     this.particleCanvas.height = this.particleCanvas.offsetHeight;
     this.particleSystem = new ParticleSystem(this.particleCanvas);
     this.rouletteAnimation = new RouletteAnimation(this.currentSelection);
-    this.dvdAnimation = new DVDAnimation();
+
+    // Iniciar animación DVD del fondo
+    new DVDAnimation();
 
     this.setupEventListeners();
     this.updateDisplay();
@@ -156,11 +157,6 @@ class SorteosApp {
     this.updateDisplay();
 
     this.isAnimating = false;
-  }
-
-  private showSelection(participant: Participant): void {
-    this.currentSelection.textContent = participant.username;
-    this.currentSelection.classList.remove('empty', 'breaking', 'broken', 'dust');
   }
 
   private clearSelection(): void {
